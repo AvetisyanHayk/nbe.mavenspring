@@ -1,5 +1,7 @@
 package be.hayk.testapp.web;
 
+import be.hayk.testapp.data.repositories.CreateRepositoryBeans;
+import be.hayk.testapp.data.source.CreateDataSourceBean;
 import javax.servlet.Filter;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -17,7 +19,10 @@ public class Initializer extends AbstractAnnotationConfigDispatcherServletInitia
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return null;
+        return new Class<?>[]{
+            CreateDataSourceBean.class,
+            CreateRepositoryBeans.class
+        };
     }
 
     @Override
